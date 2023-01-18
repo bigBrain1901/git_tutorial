@@ -18,6 +18,6 @@ jobs:
           with:
             regex_pattern: '[0-9]{3}[A-Z]{2}[0-9]{3}'
             regex_flags: 'gim'
-            search_string: "${{ steps.get_diff.outputs.diff }}"
+            search_string: '${{ steps.get_diff.outputs.diff }}'
         - name: Echo Roll Number
           run: echo "Is your roll number '${{ steps.matcher.outputs.first_match }}'?"
