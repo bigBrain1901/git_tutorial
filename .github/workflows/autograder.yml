@@ -11,7 +11,7 @@ jobs:
           id: get_diff
           uses: technote-space/get-diff-action@v4
           with:
-            PATTERNS: details\.txt
+            PATTERNS: details.txt
         - name: Find Roll Number
           id: matcher
           uses: AsasInnab/regex-action@v1
