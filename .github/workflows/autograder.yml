@@ -7,11 +7,17 @@ jobs:
   check_pr:
       runs-on: ubuntu-latest
       steps:
+        - name: Get DIFF body
+          id: get_diff
+          uses: technote-space/get-diff-action@v4
+          with:
+            PATTERNS: details\.txt
         - name: Find Roll Number
           id: matcher
           uses: AsasInnab/regex-action@v1
           with:
             regex_pattern: '[0-9]{3}[A-Z]{2}[0-9]{3}'
             regex_flags: 'gim'
+            search_string: "${{ steps.get_diff.outputs.diff }}"
         - name: Echo Roll Number
-          run: echo "Is your roll number ${{ steps.jira.outputs.first_match }}?"
+          run: echo "Is your roll number '${{ steps.matcher.outputs.first_match }}'?"
