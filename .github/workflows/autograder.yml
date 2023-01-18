@@ -12,5 +12,6 @@ jobs:
           uses: AsasInnab/regex-action@v1
           with:
             regex_pattern: '[0-9]{3}[A-Z]{2}[0-9]{3}'
+            regex_flags: 'gim'
         - name: Echo Roll Number
           run: echo "Is your roll number ${{ steps.jira.outputs.first_match }}?"
